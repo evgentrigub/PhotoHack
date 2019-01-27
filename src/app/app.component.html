@@ -1,0 +1,48 @@
+<body>
+  <div class="container">
+
+    <h1>PhotoLab</h1>
+
+    <form action="#">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Загрузите 2 фотографии</span>
+            <input type="file" multiple (change)="handleFileInput($event.target.files)">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </form>
+
+      <div *ngIf="firstPhoto" >
+        <h6>Первое фото</h6>
+        <img [src]="firstPhoto" style="width:200px; margin: 30px">
+        <h6>Второе фото</h6>
+        <img [src]="secondPhoto" style="width:200px; margin: 30px" >
+      </div>
+<!-- 
+      <div *ngIf="secondPhoto" class="first">
+          
+      </div> -->
+      
+
+    <!-- <div class="form-group">
+      <label for="file">Загрузите фото</label>
+      <input type="file"
+             id="file"
+             (change)="handleFileInput($event.target.files)">
+    </div> -->
+    
+    <button mat-raised-button color="accent" (click)="uploadFileToActivity()">Отправить фото</button>
+    <!-- <a class="waves-effect waves-light btn" (click)="uploadFileToActivity()"><i class="material-icons left">cloud</i>button</a> -->
+    
+    <div *ngIf="urlFinal">
+      <img [src]="urlFinal" style="width:200px; margin: 30px">
+      <button mat-raised-button color="primary" (click)="openWin2()">Поделиться в Facebook</button>
+    </div>
+
+  </div>
+</body>
+
+
